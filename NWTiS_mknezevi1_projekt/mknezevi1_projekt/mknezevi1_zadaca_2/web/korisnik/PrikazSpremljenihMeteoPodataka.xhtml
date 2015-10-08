@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view locale="#{lokalizacija.vazecaLokalizacija}">
+        <head>
+            <title>#{i18n.prikazSpremljenihMeteoPodataka_naslov}</title>
+            <meta name="viewport" content="width=device-width"/>
+        </head>
+        <body>
+            <h1>#{i18n.prikazSpremljenihMeteoPodataka_naslov}</h1>
+
+            <h:outputLink value="../index.xhtml">
+                #{i18n.index_odabirJezika}
+            </h:outputLink><br/>
+
+            <h:outputLink value="../index_odabir.xhtml">
+                #{i18n.index_odabir_naslov}
+            </h:outputLink><br/>
+
+            <h:outputLink value="../korisnik/korisnickiDio.xhtml">
+                #{i18n.korisnickiDio_naslov}
+            </h:outputLink> 
+            <br/>
+            <br/>
+
+            #{i18n.prikazSpremljenihMeteoPodataka_adresa} #{odabir.odabranaAdresa}
+            <br/>
+            <br/>
+            <h:form>
+                <h:dataTable value="#{odabir.podaci2}" var="p2">
+                    <h:column>
+                        <f:facet name="header">#{i18n.prikazSpremljenihMeteoPodataka_temperatura}</f:facet>
+                            #{p2.temperatura}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.prikazSpremljenihMeteoPodataka_vlaga}</f:facet>
+                            #{p2.vlaga}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.prikazSpremljenihMeteoPodataka_vjetar}</f:facet>
+                            #{p2.vjetar}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.prikazSpremljenihMeteoPodataka_tlak}</f:facet>
+                            #{p2.tlak}
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+
+        </body>
+    </f:view>
+</html>

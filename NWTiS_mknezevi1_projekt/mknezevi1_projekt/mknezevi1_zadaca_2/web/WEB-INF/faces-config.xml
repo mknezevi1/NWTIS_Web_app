@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <application>
+        <resource-bundle>
+            <base-name>org.foi.nwtis.mknezevi1.i18n</base-name>
+            <var>i18n</var>
+        </resource-bundle>
+        <locale-config>
+            <default-locale>hr</default-locale>
+            <supported-locale>en</supported-locale>
+            <supported-locale>de</supported-locale>
+        </locale-config>
+    </application>
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id> 
+        <navigation-case>
+            <from-action>#{lokalizacija.odaberiJezik}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/index_odabir.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/index_odabir.xhtml</from-view-id> 
+        <navigation-case>
+            <from-action>#{odabir.dajMeteoPodatke(l.adresa)}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/PrikazMeteoPodataka.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{odabir.dajSpremljeneMeteoPodatke(l.adresa)}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/PrikazSpremljenihMeteoPodataka.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/login.xhtml</from-view-id> 
+        <navigation-case>
+            <from-action>#{login.provjeraKorisnika()}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/index_odabir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{login.provjeraKorisnika()}</from-action>
+            <from-outcome>ERROR</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/registracija.xhtml</from-view-id> 
+        <navigation-case>
+            <from-action>#{registracija.registrirajKorisnika()}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{registracija.registrirajKorisnika()}</from-action>
+            <from-outcome>ERROR</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/korisnik/korisnickiDio.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{odabir.dajMeteoPodatke(l.adresa)}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/korisnik/PrikazMeteoPodataka.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{odabir.dajSpremljeneMeteoPodatke(l.adresa)}</from-action>
+            <from-outcome>OK</from-outcome>
+            <to-view-id>/korisnik/PrikazSpremljenihMeteoPodataka.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{meteoPrognoza.dodajAdresu()}</from-action>
+            <from-outcome>DODANO</from-outcome>
+            <to-view-id>/korisnik/korisnickiDio.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{meteoPrognoza.obrisiAdresu()}</from-action>
+            <from-outcome>OBRISANO</from-outcome>
+            <to-view-id>/korisnik/korisnickiDio.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/korisnik/admin/emailPostavke.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{emailPovezivanje.citajPoruke()}</from-action>
+            <from-outcome>citaj</from-outcome>
+            <to-view-id>/korisnik/admin/pregledSvihPoruka.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+   
+    <navigation-rule>
+        <from-view-id>/korisnik/admin/pregledSvihPoruka.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{pregledSvihPoruka.odaberiMapu()}</from-action>
+            <from-outcome>promjenaMape</from-outcome>
+            <to-view-id>/korisnik/admin/pregledSvihPoruka.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{pregledSvihPoruka.otvoriPoruku(p.id)}</from-action>
+            <from-outcome>otvoriPoruku</from-outcome>
+            <to-view-id>/korisnik/admin/pregledPoruke.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+  
+</faces-config>

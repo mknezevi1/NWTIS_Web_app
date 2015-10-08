@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view locale="#{lokalizacija.vazecaLokalizacija}">
+        <h:head>
+            <title>#{i18n.registracija_naslov}</title>
+        </h:head>
+        <h:body>
+            <h1>#{i18n.registracija_naslov}</h1>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/index.xhtml">
+                #{i18n.index_odabirJezika}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/index_odabir.xhtml">
+                #{i18n.index_odabir_naslov}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/login.xhtml">
+                #{i18n.login_naslov}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/registracija.xhtml">
+                #{i18n.registracija_naslov}
+            </h:outputLink><br/>
+            
+            <h:form id="registracija">
+                <h:panelGrid columns="2">
+                    #{i18n.registracija_korime}  <h:inputText id="korIme" value="#{registracija.korisnickoIme}"/>
+                    #{i18n.registracija_ime}     <h:inputText id="ime" value="#{registracija.ime}"/>
+                    #{i18n.registracija_prezime} <h:inputText id="prez" value="#{registracija.prezime}"/>
+                    #{i18n.registracija_lozinka} <h:inputSecret id="loz" value="#{registracija.lozinka}"/> 
+                    #{i18n.registracija_email}   <h:inputText id="Email" value="#{registracija.email}"/> 
+                    <h:commandButton value="#{i18n.registracija_registriraj}" action="#{registracija.registrirajKorisnika()}"/> 
+                </h:panelGrid>
+            </h:form>
+        </h:body>
+    </f:view>
+</html>
+

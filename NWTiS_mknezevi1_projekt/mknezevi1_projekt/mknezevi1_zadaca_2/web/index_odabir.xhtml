@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view locale="#{lokalizacija.vazecaLokalizacija}">
+        <h:head>
+            <title>#{i18n.index_odabir_naslov}</title>
+        </h:head>
+        <h:body>
+            <h1>#{i18n.index_odabir_naslov}</h1>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/index.xhtml">
+                 #{i18n.index_odabirJezika}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/index_odabir.xhtml">
+                #{i18n.index_odabir_naslov}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/login.xhtml">
+                #{i18n.login_naslov}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/registracija.xhtml">
+                #{i18n.registracija_naslov}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/korisnik/korisnickiDio.xhtml">
+                #{i18n.korisnickiDio_naslov}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/korisnik/admin/emailPostavke.xhtml">
+                #{i18n.emailPostavke_naslov}
+            </h:outputLink><br/>
+            
+            <h:form>
+                <h:dataTable value="#{odabir.lista}" var="l">
+                    <h:column>
+                        <f:facet name="header">#{i18n.korisnickiDio_ID}</f:facet>
+                            #{l.idadresa}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.korisnickiDio_adresa}</f:facet>
+                            #{l.adresa}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.korisnickiDio_latitude}</f:facet>
+                            #{l.geoloc.latitude}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.korisnickiDio_longitude}</f:facet>
+                            #{l.geoloc.longitude}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">#{i18n.korisnickiDio_trenutniMeteoPodaci}</f:facet>
+                        <h:commandButton value="#{i18n.korisnickiDio_prikazi}" action="#{odabir.dajMeteoPodatke(l.adresa)}"/> 
+                    </h:column>   
+                    <h:column>
+                        <f:facet name="header">#{i18n.korisnickiDio_spremljeniMeteoPodaci}</f:facet>
+                        <h:commandButton value="#{i18n.korisnickiDio_prikazi}" action="#{odabir.dajSpremljeneMeteoPodatke(l.adresa)}"/> 
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </h:body>
+    </f:view>
+</html>
+

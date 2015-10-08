@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view locale="#{lokalizacija.vazecaLokalizacija}">
+        <head>
+            <title>#{i18n.prikazMeteoPodataka_naslov}</title>
+            <meta name="viewport" content="width=device-width"/>
+        </head>
+        <body>
+            <h1>#{i18n.prikazMeteoPodataka_naslov}</h1>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/index.xhtml">
+                #{i18n.index_odabirJezika}
+            </h:outputLink><br/>
+
+            <h:outputLink value="http://localhost:8080/mknezevi1_zadaca_2/faces/index_odabir.xhtml">
+                #{i18n.index_odabir_naslov}
+            </h:outputLink><br/>
+            <br/>
+            <br/>
+
+            #{i18n.prikazMeteoPodataka_adresa} #{odabir.odabranaAdresa}
+            <br/>
+            <br/>
+            <h:form>
+                <h:dataTable value="#{odabir}">
+                    <h:column>
+                        <f:facet name="header">#{i18n.prikazMeteoPodataka_temperatura}</f:facet>
+                            #{odabir.podaci.temperature}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.prikazMeteoPodataka_vlaga}</f:facet>
+                            #{odabir.podaci.humidity}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.prikazMeteoPodataka_vjetar}</f:facet>
+                            #{odabir.podaci.windSpeed}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{i18n.prikazMeteoPodataka_tlak}</f:facet>
+                            #{odabir.podaci.pressureSeaLevel}
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+
+        </body>
+    </f:view>
+</html>

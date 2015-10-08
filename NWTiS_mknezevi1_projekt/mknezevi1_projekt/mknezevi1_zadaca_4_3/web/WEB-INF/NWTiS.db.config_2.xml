@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>NWTIS konfiguracija</comment>
+    <entry key="server.database">jdbc:mysql://localhost:3306/</entry>
+    <entry key="admin.username">nwtis_admin</entry>
+    <entry key="admin.password">nwtis_foi</entry>
+    <entry key="admin.database">mysql</entry>
+    <entry key="user.username">nwtis_g2</entry>
+    <entry key="user.password">g2_nwtis</entry>
+    <entry key="user.database">nwtis_mknezevi1_bp_1</entry>
+    <entry key="driver.database.odbc">sun.jdbc.odbc.JdbcOdbcDriver</entry>
+    <entry key="driver.database.mysql">com.mysql.jdbc.Driver</entry>
+    <entry key="driver.database.derby">org.apache.derby.jdbc.ClientDriver</entry>
+    <entry key="driver.database.postgresql">org.postgresql.Driver</entry>
+ 
+    <entry key="cKey">SEL78ZRacrxzaG4vgEWbC8bTNV9qegCj</entry>
+    <entry key="sKey">u7KwZGgYG7m1SlGY</entry>
+    <entry key="interval">60</entry>
+    <entry key="port">8000</entry>	
+    <entry key="adresaServera">127.0.0.1</entry>
+    
+    <entry key="imapPort">143</entry>
+    <entry key="korisnickoIme">servis@nwtis.nastava.foi.hr</entry>
+    <entry key="lozinka">123456</entry>
+    <entry key="kljucna">NWTiS poruka</entry>
+    <entry key="ispravnePoruke">NWTiS_IspravnePoruke</entry>
+    <entry key="ostalePoruke">NWTiS_OstalePoruke</entry>
+    <entry key="adresaStatistike">admin@nwtis.nastava.foi.hr</entry>
+    <entry key="statickiDio">Statistika poruka</entry>    
+    <entry key="poslanePoruke">Sent</entry>
+    
+    <entry key="korisnikApp4">admin</entry>
+    <entry key="lozinkaApp4">123456</entry>
+</properties>
